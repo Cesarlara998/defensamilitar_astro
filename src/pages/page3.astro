@@ -1,0 +1,2424 @@
+---
+// Import styles
+
+// In Astro, we define reactive variables in the frontmatter
+// but we need to use client:load for interactive elements
+let activeSection = "home";
+let menuOpen = false;
+let scrolled = false;
+
+// Astro doesn't have useRef or useEffect, so we'll use client-side scripts
+---
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap">
+<meta charset="UTF-8">
+
+<head>
+  <title>Defensa militar</title>
+</head>
+
+
+<!-- Header -->
+<header class={`site-header ${scrolled ? "scrolled" : ""}`}>
+  <div class="container">
+    <div class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span>Defensa</span>
+        <span>Militar</span>
+      </div>
+    </div>
+    
+    <nav class={menuOpen ? "active" : ""}>
+      <ul>
+        <li><a href="#home" class={activeSection === "home" ? "active" : ""}>Inicio</a></li>
+        <li><a href="#about" class={activeSection === "about" ? "active" : ""}>Nosotros</a></li>
+        <li><a href="#services" class={activeSection === "services" ? "active" : ""}>Servicios</a></li>
+        <li><a href="#cases" class={activeSection === "cases" ? "active" : ""}>Casos</a></li>
+        <li><a href="#contact" class={activeSection === "contact" ? "active" : ""}>Contacto</a></li>
+      </ul>
+    </nav>
+    
+    <div class="header-actions">
+      <a href="#contact" class="contact-btn">
+        <span>Consulta</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <button class={`menu-toggle ${menuOpen ? "active" : ""}`} id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="overlay"></div>
+    <div class="grid-pattern"></div>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="glitch" data-text="DEFENSA MILITAR">DEFENSA MILITAR</h1>
+        <h2>Lorem ipsum</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos dignissimos, adipisci molestias, est laboriosam quidem quam fuga animi similique, laudantium sequi repellendus eveniet blanditiis consequatur! Asperiores, pariatur reprehenderit. Incidunt, sequi.</p>
+        
+        <div class="hero-buttons">
+          <a href="#services" class="btn btn-primary">
+            <span>Nuestros Servicios</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <span>Contactar</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="hero-image">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1579912437766-7896df6d3cd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Abogado militar" />
+          <div class="image-overlay"></div>
+        </div>
+        <div class="stats-card">
+          <div class="stat">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">Tasa de Éxito</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">25+</span>
+            <span class="stat-label">Años de Experiencia</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Casos Ganados</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<!-- About Section -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Sobre Nosotros</span>
+      <h2 class="section-title">EXPERIENCIA MILITAR Y LEGAL COMBINADA</h2>
+      <p class="section-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus delectus architecto consequuntur est ut dolores quos. Provident quo, maxime deserunt animi incidunt molestias a doloribus odio quisquam magnam, delectus cupiditate?</p>
+    </div>
+    
+    <div class="about-content">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1593115057322-e94b77572f20?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Equipo legal" />
+        <div class="experience-badge">
+          <span>25+</span>
+          <span>AÑOS DE EXPERIENCIA</span>
+        </div>
+      </div>
+      
+      <div class="about-text">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum perferendis deserunt odit expedita amet quos saepe laboriosam fugiat! Nesciunt cumque maxime facere provident accusantium sequi magnam illo nihil repudiandae dolor!</p>
+        
+        <div class="about-features">
+          <div class="feature">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <h3>Experiencia</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, provident</p>
+            </div>
+          </div>
+          
+          <div class="feature">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <h3>Defensa</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, provident</p>
+            </div>
+          </div>
+          
+          <div class="feature">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <h3>Disponibilidad 24/7</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, provident</p>
+            </div>
+          </div>
+          
+          <div class="feature">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                <circle cx="8.5" cy="7" r="4"/>
+                <polyline points="17 11 19 13 23 9"/>
+              </svg>
+            </div>
+            <div class="feature-text">
+              <h3>Enfoque Personalizado</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, provident</p>
+            </div>
+          </div>
+        </div>
+        
+        <a href="#contact" class="btn btn-text">
+          <span>Conocer al Equipo</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Nuestros Servicios</span>
+      <h2 class="section-title">ÁREAS DE PRÁCTICA ESPECIALIZADA</h2>
+      <p class="section-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, provident</p>
+    </div>
+    
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3>Defensa</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, provident</p>
+        <ul class="service-list">
+          <li>Lorem ipsum</li>
+          <li>Lorem ipsum</li>
+          <li>Lorem ipsum</li>
+          <li>Lorem ipsum</li>
+        </ul>
+        <a href="#contact" class="service-link">
+          <span>Consultar</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+      
+      <!-- More service cards... -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </div>
+        <h3>Acciones</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, provident</p>
+        <ul class="service-list">
+            <li>Lorem ipsum</li>
+            <li>Lorem ipsum</li>
+            <li>Lorem ipsum</li>
+            <li>Lorem ipsum</li>
+        </ul>
+        <a href="#contact" class="service-link">
+          <span>Consultar</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.42 4.58a5.4 5.4 0 00-7.65 0l-.77.78-.77-.78a5.4 5.4 0 00-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"/>
+          </svg>
+        </div>
+        <h3>Beneficios</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, provident</p>
+        <ul class="service-list">
+            <li>Lorem ipsum</li>
+            <li>Lorem ipsum</li>
+            <li>Lorem ipsum</li>
+            <li>Lorem ipsum</li>
+        </ul>
+        <a href="#contact" class="service-link">
+          <span>Consultar</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </div>
+        <h3>Investigaciones</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, provident</p>
+        <ul class="service-list">
+            <li>Lorem ipsum</li>
+            <li>Lorem ipsum</li>
+            <li>Lorem ipsum</li>
+            <li>Lorem ipsum</li>
+        </ul>
+        <a href="#contact" class="service-link">
+          <span>Consultar</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 11 12 14 22 4"/>
+            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+          </svg>
+        </div>
+        <h3>Apelaciones</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, provident</p>
+        <ul class="service-list">
+            <li>Lorem ipsum</li>
+            <li>Lorem ipsum</li>
+            <li>Lorem ipsum</li>
+            <li>Lorem ipsum</li>
+        </ul>
+        <a href="#contact" class="service-link">
+          <span>Consultar</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+            <path d="M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <h3>Derecho Familiar</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, provident</p>
+        <ul class="service-list">
+            <li>Lorem ipsum</li>
+            <li>Lorem ipsum</li>
+            <li>Lorem ipsum</li>
+            <li>Lorem ipsum</li>
+        </ul>
+        <a href="#contact" class="service-link">
+          <span>Consultar</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cases Section -->
+<!-- <section class="cases-section" id="cases">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Casos Destacados</span>
+      <h2 class="section-title">HISTORIAL DE ÉXITOS</h2>
+      <p class="section-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, provident</p>
+    </div>
+    
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <span class="case-type">Corte Marcial</span>
+          <span class="case-result">Caso Desestimado</span>
+        </div>
+        <h3>Defensa Exitosa en Caso de Artículo 120</h3>
+        <p>Representamos a un Sargento del Ejército acusado de violaciones al Artículo 120. Después de una investigación exhaustiva y presentación de pruebas exculpatorias, todos los cargos fueron desestimados antes del juicio.</p>
+        <div class="case-meta">
+          <div class="meta-item">
+            <span class="meta-label">Rama:</span>
+            <span class="meta-value">Ejército</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Ubicación:</span>
+            <span class="meta-value">Fort Bragg, NC</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="case-card">
+        <div class="case-header">
+          <span class="case-type">Acción Administrativa</span>
+          <span class="case-result">Reincorporado</span>
+        </div>
+        <h3>Oficial Naval Reincorporado Después de Separación Injusta</h3>
+        <p>Ayudamos a un Teniente de la Marina a impugnar con éxito una junta de separación administrativa, resultando en su reincorporación completa con pago retroactivo y restauración de rango.</p>
+        <div class="case-meta">
+          <div class="meta-item">
+            <span class="meta-label">Rama:</span>
+            <span class="meta-value">Marina</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Ubicación:</span>
+            <span class="meta-value">San Diego, CA</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="case-card">
+        <div class="case-header">
+          <span class="case-type">Beneficios de Veteranos</span>
+          <span class="case-result">100% Concedido</span>
+        </div>
+        <h3>Veterano Recibe Calificación de Discapacidad del 100%</h3>
+        <p>Representamos a un veterano de la Fuerza Aérea cuya reclamación inicial de discapacidad fue denegada. Después de nuestra apelación, recibió una calificación del 100% con beneficios retroactivos.</p>
+        <div class="case-meta">
+          <div class="meta-item">
+            <span class="meta-label">Rama:</span>
+            <span class="meta-value">Fuerza Aérea</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Ubicación:</span>
+            <span class="meta-value">Denver, CO</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="case-card">
+        <div class="case-header">
+          <span class="case-type">Apelación Militar</span>
+          <span class="case-result">Sentencia Reducida</span>
+        </div>
+        <h3>Reducción Significativa de Sentencia en Apelación</h3>
+        <p>Logramos una reducción significativa de la sentencia para un Marine condenado, identificando errores legales clave durante el juicio original que llevaron a una revisión favorable.</p>
+        <div class="case-meta">
+          <div class="meta-item">
+            <span class="meta-label">Rama:</span>
+            <span class="meta-value">Marines</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Ubicación:</span>
+            <span class="meta-value">Quantico, VA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cases-cta">
+      <a href="#contact" class="btn btn-primary">
+        <span>Discutir Su Caso</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section> -->
+
+<!-- Team Section -->
+
+
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Contacto</span>
+      <h2 class="section-title">HABLEMOS DE SU CASO</h2>
+      <p class="section-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi iure nemo enim dolore ipsa. Quidem consequatur eligendi, ea odio beatae repellendus, earum doloribus tenetur recusandae suscipit in voluptates eius deserunt?</p>
+    </div>
+    
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="info-card">
+          <div class="info-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+          </div>
+          <div class="info-content">
+            <h3>Teléfono</h3>
+            <p>+123 456 7890</p>
+            <p class="info-note">Disponible 24/7 para emergencias</p>
+          </div>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div class="info-content">
+            <h3>Email</h3>
+            <p>info@email.com</p>
+            <p class="info-note">Respuesta en 24 horas</p>
+          </div>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div class="info-content">
+            <h3>Oficina Principal</h3>
+            <p>123 Avenida Militar, Ciudad Capital</p>
+            <p class="info-note">Lun-Vie: 9:00 - 18:00</p>
+          </div>
+        </div>
+        
+        <div class="social-links">
+          <a href="#" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="contact-form-container">
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name">Nombre Completo</label>
+            <input type="text" id="name" class="form-control" required />
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" class="form-control" required />
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Teléfono</label>
+              <input type="tel" id="phone" class="form-control" required />
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="military-branch">Rama Militar</label>
+              <select id="military-branch" class="form-control">
+                <option value="" disabled selected>Seleccione una opción</option>
+                <option value="army">Ejército</option>
+                <option value="navy">Marina</option>
+                <option value="air-force">Fuerza Aérea</option>
+                <option value="marines">Marines</option>
+                <option value="coast-guard">Guardia Costera</option>
+                <option value="national-guard">Guardia Nacional</option>
+                <option value="veteran">Veterano</option>
+                <option value="other">Otro</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="service-type">Servicio Requerido</label>
+              <select id="service-type" class="form-control" required>
+                <option value="" disabled selected>Seleccione una opción</option>
+                <option value="court-martial">Corte Marcial</option>
+                <option value="admin-action">Acción Administrativa</option>
+                <option value="veterans-benefits">Beneficios de Veteranos</option>
+                <option value="investigation">Investigación Militar</option>
+                <option value="appeal">Apelación Militar</option>
+                <option value="family-law">Derecho Familiar Militar</option>
+                <option value="other">Otro</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Descripción del Caso</label>
+            <textarea id="message" class="form-control" rows="5" required></textarea>
+          </div>
+          
+          <div class="form-group form-check">
+            <input type="checkbox" id="confidentiality" class="form-check-input" required />
+            <label for="confidentiality" class="form-check-label">
+              Entiendo que la información proporcionada será tratada con estricta confidencialidad.
+            </label>
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-block">
+            <span>Enviar Solicitud</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-info">
+          <div class="footer-logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="logo-text">
+              <span>Defensa</span>
+              <span>Militar</span>
+            </div>
+          </div>
+          <p class="footer-description">
+ Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias quasi ipsum cum unde suscipit, dignissimos architecto totam dolores ullam quis quibusdam fugiat aliquid explicabo facere dolorum nulla delectus. Ducimus, repudiandae?
+          </p>
+          <div class="footer-contact">
+            <div class="contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+              <span>11111</span>
+            </div>
+            <div class="contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <span>info@email.com</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Enlaces Rápidos</h3>
+          <ul>
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#about">Nosotros</a></li>
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#cases">Casos</a></li>
+            <li><a href="#contact">Contacto</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Servicios</h3>
+          <ul>
+            <li><a href="#services">Cortes Marciales</a></li>
+            <li><a href="#services">Acciones Administrativas</a></li>
+            <li><a href="#services">Beneficios de Veteranos</a></li>
+            <li><a href="#services">Investigaciones Militares</a></li>
+            <li><a href="#services">Apelaciones Militares</a></li>
+            <li><a href="#services">Derecho Familiar Militar</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-newsletter">
+          <h3>Boletín Informativo</h3>
+          <p>Lorem</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Su email" required />
+            <button type="submit">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+              </svg>
+            </button>
+          </form>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="copyright">&copy; {new Date().getFullYear()} Defensa Militar. Todos los derechos reservados.</p>
+      <ul class="footer-bottom-links">
+        <li><a href="#">Términos y Condiciones</a></li>
+        <li><a href="#">Política de Privacidad</a></li>
+        <li><a href="#">Aviso Legal</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Client-side JavaScript for interactivity
+  document.addEventListener('DOMContentLoaded', () => {
+    // Menu toggle functionality
+    const menuToggle = document.getElementById('menu-toggle');
+    let menuOpen = false;
+    
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        menuOpen = !menuOpen;
+        const nav = document.querySelector('nav');
+        if (menuOpen) {
+          menuToggle.classList.add('active');
+          nav.classList.add('active');
+        } else {
+          menuToggle.classList.remove('active');
+          nav.classList.remove('active');
+        }
+      });
+    }
+    
+    // Scroll functionality
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 50;
+      const header = document.querySelector('.site-header');
+      
+      if (scrolled) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      
+      // Update active section based on scroll position
+      const sections = ["home", "about", "services", "cases", "team", "contact"];
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element && window.scrollY >= element.offsetTop - 100) {
+          // Update active nav link
+          document.querySelectorAll('nav a').forEach(link => {
+            link.classList.remove('active');
+          });
+          document.querySelector(`nav a[href="#${section}"]`)?.classList.add('active');
+          break;
+        }
+      }
+    };
+    
+    // window.addEventListener('scroll', handleScroll);
+    
+    // Custom cursor effect
+    // const cursor = document.getElementById('cursor');
+    // const cursorDot = document.getElementById('cursor-dot');
+    
+    // if (cursor && cursorDot) {
+    //   const handleMouseMove = (e) => {
+    //     cursor.style.left = e.clientX + 'px';
+    //     cursor.style.top = e.clientY + 'px';
+        
+    //     cursorDot.style.left = e.clientX + 'px';
+    //     cursorDot.style.top = e.clientY + 'px';
+    //   };
+      
+    //   window.addEventListener('mousemove', handleMouseMove);
+    // }
+    
+    // Initialize scroll handler on load
+    handleScroll();
+  });
+</script>
+
+
+<style>
+
+    /* ===== FONTS ===== */
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap");
+
+/* ===== VARIABLES ===== */
+:root {
+  --color-primary: #2a3b4c;
+  --color-primary-light: #3c5064;
+  --color-primary-dark: #1a2a3c;
+  --color-secondary: #d4af37;
+  --color-secondary-light: #e6c860;
+  --color-secondary-dark: #b39020;
+  --color-accent: #bf4342;
+  --color-text: #e6e6e6;
+  --color-text-dark: #b3b3b3;
+  --color-bg: #0f1923;
+  --color-bg-light: #1a2a3c;
+  --color-bg-dark: #080e14;
+  --color-border: #2a3b4c;
+
+  --font-primary: "Rajdhani", sans-serif;
+  --font-secondary: "Roboto Mono", monospace;
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  --shadow-small: 0 2px 5px rgba(0, 0, 0, 0.2);
+  --shadow-medium: 0 5px 15px rgba(0, 0, 0, 0.3);
+  --shadow-large: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 5rem;
+}
+
+/* ===== RESET ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-normal);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  outline: none;
+  border: none;
+  background: none;
+}
+
+/* ===== CUSTOM CURSOR ===== */
+.cursor {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-secondary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: width 0.2s, height 0.2s;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-secondary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10000;
+}
+
+a:hover ~ .cursor,
+button:hover ~ .cursor {
+  width: 60px;
+  height: 60px;
+  border-color: var(--color-secondary-light);
+}
+
+/* ===== LAYOUT ===== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+section {
+  padding: var(--spacing-xl) 0;
+  position: relative;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.section-tag {
+  display: inline-block;
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: var(--spacing-xs);
+  position: relative;
+}
+
+.section-tag::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  width: 15px;
+  height: 1px;
+  background-color: var(--color-secondary);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-sm);
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-secondary);
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-dark);
+  max-width: 700px;
+  margin: var(--spacing-md) auto 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 2rem;
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  gap: 0.5rem;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: var(--transition-normal);
+  z-index: -1;
+}
+
+.btn:hover::before {
+  left: 0;
+}
+
+.btn svg {
+  width: 18px;
+  height: 18px;
+  transition: var(--transition-normal);
+}
+
+.btn:hover svg {
+  transform: translateX(5px);
+}
+
+.btn-primary {
+  background-color: var(--color-secondary);
+  color: var(--color-primary-dark);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-secondary-dark);
+}
+
+.btn-outline {
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-primary-dark);
+}
+
+.btn-text {
+  padding: 0;
+  color: var(--color-secondary);
+  position: relative;
+}
+
+.btn-text::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-secondary);
+  transition: var(--transition-normal);
+}
+
+.btn-text:hover::after {
+  width: 100%;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--spacing-md) 0;
+  z-index: 1000;
+  transition: var(--transition-normal);
+  background-color: rgba(15, 25, 35, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.site-header.scrolled {
+  padding: var(--spacing-sm) 0;
+  background-color: rgba(15, 25, 35, 0.95);
+  box-shadow: var(--shadow-medium);
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--color-secondary);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo-text span:first-child {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.logo-text span:last-child {
+  font-size: 1rem;
+  color: var(--color-secondary);
+  letter-spacing: 5px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  height: 100vh;
+  background-color: var(--color-bg-light);
+  transition: var(--transition-normal);
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-large);
+}
+
+nav.active {
+  right: 0;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  text-align: center;
+}
+
+nav ul li a {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-secondary);
+  transition: var(--transition-normal);
+  transform: translateX(-50%);
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: var(--color-secondary);
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+  width: 100%;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.contact-btn {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--color-secondary);
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition-normal);
+}
+
+.contact-btn:hover {
+  background-color: var(--color-secondary-dark);
+}
+
+.contact-btn svg {
+  width: 16px;
+  height: 16px;
+  transition: var(--transition-normal);
+}
+
+.contact-btn:hover svg {
+  transform: translateX(5px);
+}
+
+.menu-toggle {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-text);
+  position: absolute;
+  left: 0;
+  transition: var(--transition-normal);
+}
+
+.menu-toggle span:nth-child(1) {
+  top: 0;
+}
+
+.menu-toggle span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menu-toggle span:nth-child(3) {
+  bottom: 0;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, var(--color-bg) 0%, rgba(15, 25, 35, 0.8) 100%);
+  z-index: 1;
+}
+
+.grid-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(42, 59, 76, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42, 59, 76, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  z-index: 2;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+  position: relative;
+  z-index: 3;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-text h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-xs);
+  position: relative;
+  display: inline-block;
+}
+
+.glitch {
+  position: relative;
+  color: var(--color-text);
+  letter-spacing: 5px;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.glitch::before {
+  color: var(--color-accent);
+  z-index: -1;
+  animation: glitch-effect 3s infinite;
+}
+
+.glitch::after {
+  color: var(--color-secondary);
+  z-index: -2;
+  animation: glitch-effect 2s infinite reverse;
+}
+
+@keyframes glitch-effect {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-3px, 3px);
+  }
+  40% {
+    transform: translate(-3px, -3px);
+  }
+  60% {
+    transform: translate(3px, 3px);
+  }
+  80% {
+    transform: translate(3px, -3px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.hero-text h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-md);
+  letter-spacing: 3px;
+  font-family: var(--font-secondary);
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-dark);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.hero-image {
+  position: relative;
+  display: none;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, var(--color-bg) 0%, rgba(15, 25, 35, 0) 100%);
+}
+
+.stats-card {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--spacing-md);
+  background-color: var(--color-bg-light);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-medium);
+  border: 1px solid var(--color-border);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--color-text-dark);
+  font-family: var(--font-secondary);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: var(--spacing-md);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  z-index: 3;
+}
+
+.scroll-indicator span {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-text-dark);
+  font-family: var(--font-secondary);
+}
+
+.line {
+  width: 1px;
+  height: 50px;
+  background-color: var(--color-text-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: var(--color-secondary);
+  animation: scroll-down 2s infinite;
+}
+
+@keyframes scroll-down {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+  background-color: var(--color-bg-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(42, 59, 76, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42, 59, 76, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  z-index: 0;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+  position: relative;
+  z-index: 1;
+}
+
+.about-image {
+  position: relative;
+}
+
+.about-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-medium);
+}
+
+.experience-badge {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 120px;
+  height: 120px;
+  background-color: var(--color-secondary);
+  color: var(--color-primary-dark);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  box-shadow: var(--shadow-medium);
+  z-index: 2;
+}
+
+.experience-badge span:first-child {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.experience-badge span:last-child {
+  font-size: 0.7rem;
+  line-height: 1.2;
+}
+
+.about-text p {
+  margin-bottom: var(--spacing-md);
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background-color: var(--color-bg-light);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border);
+  transition: var(--transition-normal);
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--color-secondary);
+}
+
+.feature-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--color-secondary);
+  flex-shrink: 0;
+}
+
+.feature-text h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.feature-text p {
+  font-size: 0.9rem;
+  color: var(--color-text-dark);
+  margin: 0;
+}
+
+/* ===== SERVICES SECTION ===== */
+.services-section {
+  background-color: var(--color-bg);
+  position: relative;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.service-card {
+  background-color: var(--color-bg-light);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  border: 1px solid var(--color-border);
+  transition: var(--transition-normal);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--color-secondary);
+}
+
+.service-icon {
+  width: 50px;
+  height: 50px;
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-md);
+}
+
+.service-list {
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-md);
+}
+
+.service-list li {
+  position: relative;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text-dark);
+  font-size: 0.9rem;
+}
+
+.service-list li::before {
+  content: ">";
+  position: absolute;
+  left: -15px;
+  color: var(--color-secondary);
+  font-family: var(--font-secondary);
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-top: auto;
+  transition: var(--transition-normal);
+}
+
+.service-link svg {
+  width: 16px;
+  height: 16px;
+  transition: var(--transition-normal);
+}
+
+.service-link:hover {
+  color: var(--color-secondary-light);
+}
+
+.service-link:hover svg {
+  transform: translateX(5px);
+}
+
+/* ===== CASES SECTION ===== */
+.cases-section {
+  background-color: var(--color-bg-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.cases-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(42, 59, 76, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42, 59, 76, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  z-index: 0;
+}
+
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-md);
+  position: relative;
+  z-index: 1;
+}
+
+.case-card {
+  background-color: var(--color-bg-light);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  border: 1px solid var(--color-border);
+  transition: var(--transition-normal);
+  height: 100%;
+}
+
+.case-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--color-secondary);
+}
+
+.case-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-md);
+}
+
+.case-type {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background-color: rgba(42, 59, 76, 0.5);
+  color: var(--color-text);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.case-result {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background-color: rgba(212, 175, 55, 0.2);
+  color: var(--color-secondary);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.case-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.case-card p {
+  font-size: 0.95rem;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-md);
+}
+
+.case-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-md);
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-label {
+  font-size: 0.8rem;
+  color: var(--color-text-dark);
+  margin-bottom: 0.25rem;
+}
+
+.meta-value {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.cases-cta {
+  text-align: center;
+  margin-top: var(--spacing-xl);
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== TEAM SECTION ===== */
+.team-section {
+  background-color: var(--color-bg);
+  position: relative;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.team-member {
+  background-color: var(--color-bg-light);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  transition: var(--transition-normal);
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--color-secondary);
+}
+
+.member-image {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.member-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-normal);
+}
+
+.team-member:hover .member-image img {
+  transform: scale(1.1);
+}
+
+.member-overlay {
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  width: 100%;
+  padding: var(--spacing-sm) 0;
+  background-color: rgba(15, 25, 35, 0.9);
+  transition: var(--transition-normal);
+  display: flex;
+  justify-content: center;
+}
+
+.team-member:hover .member-overlay {
+  bottom: 0;
+}
+
+.member-social {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.member-social a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-bg-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-normal);
+}
+
+.member-social a svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-text);
+}
+
+.member-social a:hover {
+  background-color: var(--color-secondary);
+  transform: translateY(-5px);
+}
+
+.member-social a:hover svg {
+  color: var(--color-primary-dark);
+}
+
+.member-info {
+  padding: var(--spacing-md);
+}
+
+.member-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.member-position {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-sm);
+  font-family: var(--font-secondary);
+}
+
+.member-info p {
+  font-size: 0.9rem;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.member-specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.member-specialties span {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background-color: rgba(42, 59, 76, 0.5);
+  color: var(--color-text);
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+  background-color: var(--color-bg-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(42, 59, 76, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42, 59, 76, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  z-index: 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+  position: relative;
+  z-index: 1;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.info-card {
+  background-color: var(--color-bg-light);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  transition: var(--transition-normal);
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--color-secondary);
+}
+
+.info-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--color-secondary);
+  flex-shrink: 0;
+}
+
+.info-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.info-content p {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+}
+
+.info-note {
+  font-size: 0.8rem;
+  color: var(--color-text-dark);
+}
+
+.social-links {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.social-links a {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--color-bg-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  transition: var(--transition-normal);
+}
+
+.social-links a svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-text);
+  transition: var(--transition-normal);
+}
+
+.social-links a:hover {
+  background-color: var(--color-secondary);
+  transform: translateY(-5px);
+  border-color: var(--color-secondary);
+}
+
+.social-links a:hover svg {
+  color: var(--color-primary-dark);
+}
+
+.contact-form-container {
+  background-color: var(--color-bg-light);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--color-border);
+}
+
+.contact-form .form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  color: var(--color-text);
+  font-family: var(--font-secondary);
+  transition: var(--transition-normal);
+}
+
+.form-control:focus {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.form-check-input {
+  margin-top: 0.3rem;
+  width: 16px;
+  height: 16px;
+  appearance: none;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.form-check-input:checked::before {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-primary-dark);
+  font-size: 0.8rem;
+}
+
+.form-check-label {
+  font-size: 0.9rem;
+  color: var(--color-text-dark);
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text);
+  position: relative;
+}
+
+.footer-top {
+  padding: var(--spacing-xl) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.footer-logo .logo-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-description {
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-md);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--color-text-dark);
+}
+
+.contact-item svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-secondary);
+}
+
+.footer-links h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-links h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-secondary);
+}
+
+.footer-links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-links ul li a {
+  color: var(--color-text-dark);
+  transition: var(--transition-normal);
+  font-size: 0.95rem;
+}
+
+.footer-links ul li a:hover {
+  color: var(--color-secondary);
+  transform: translateX(5px);
+  display: inline-block;
+}
+
+.footer-newsletter h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-newsletter h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-secondary);
+}
+
+.footer-newsletter p {
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-md);
+  font-size: 0.95rem;
+}
+
+.newsletter-form {
+  display: flex;
+  margin-bottom: var(--spacing-md);
+}
+
+.newsletter-form input {
+  flex-grow: 1;
+  padding: 0.8rem 1rem;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);
+  color: var(--color-text);
+  font-family: var(--font-secondary);
+}
+
+.newsletter-form button {
+  padding: 0 1rem;
+  background-color: var(--color-secondary);
+  color: var(--color-primary-dark);
+  border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+  cursor: pointer;
+  transition: var(--transition-normal);
+}
+
+.newsletter-form button:hover {
+  background-color: var(--color-secondary-dark);
+}
+
+.newsletter-form button svg {
+  width: 18px;
+  height: 18px;
+}
+
+.footer-bottom {
+  padding: var(--spacing-md) 0;
+}
+
+.footer-bottom .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.copyright {
+  color: var(--color-text-dark);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-bottom-links li a {
+  color: var(--color-text-dark);
+  font-size: 0.9rem;
+  transition: var(--transition-normal);
+}
+
+.footer-bottom-links li a:hover {
+  color: var(--color-secondary);
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+@media (min-width: 576px) {
+  .form-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-image {
+    display: block;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+
+  .footer-bottom .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 992px) {
+  nav {
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    box-shadow: none;
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: row;
+    gap: var(--spacing-md);
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .contact-btn {
+    display: flex;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-text h1 {
+    font-size: 5rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.8rem;
+  }
+}
+
+
+</style>

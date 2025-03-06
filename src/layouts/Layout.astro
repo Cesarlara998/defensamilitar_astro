@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defensa Legal Militar | Abogados Especializados</title>
+    <style>
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            font-size: 16px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 100%;
+            padding: 0 1rem;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #1a3a6c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #0f2952;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #1a3a6c;
+            color: #1a3a6c;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #1a3a6c;
+            color: white;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a3a6c;
+        }
+        
+        .logo span {
+            color: #bf9b30;
+        }
+        
+        nav {
+            position: fixed;
+            top: 60px;
+            left: -100%;
+            width: 80%;
+            height: calc(100vh - 60px);
+            background-color: white;
+            transition: left 0.3s ease;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav.active {
+            left: 0;
+        }
+        
+        nav ul {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+        }
+        
+        nav ul li {
+            margin-bottom: 1rem;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        nav ul li a:hover {
+            color: #1a3a6c;
+        }
+        
+        .mobile-menu-btn {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1589994965851-a8f479c573a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .hero-content {
+            max-width: 100%;
+        }
+        
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 4rem 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title h3 {
+            font-size: 1.75rem;
+            color: #1a3a6c;
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-title p {
+            color: #666;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .about-img {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #1a3a6c;
+        }
+        
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 4rem 0;
+            background-color: #f8f9fa;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1a3a6c;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: #1a3a6c;
+        }
+        
+        .service-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 4rem 0;
+            background-color: white;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .team-member {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .team-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-info {
+            padding: 1.5rem;
+        }
+        
+        .team-info h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+            color: #1a3a6c;
+        }
+        
+        .team-info p {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .team-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #1a3a6c;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .team-social a:hover {
+            background-color: #bf9b30;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 4rem 0;
+            background-color: #f8f9fa;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 3rem;
+            color: #1a3a6c;
+            opacity: 0.2;
+            position: absolute;
+            top: -1rem;
+            left: -0.5rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            object-fit: cover;
+        }
+        
+        .author-info h5 {
+            font-size: 1rem;
+            color: #1a3a6c;
+        }
+        
+        .author-info p {
+            font-size: 0.875rem;
+            color: #666;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 4rem 0;
+            background-color: white;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-info h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #1a3a6c;
+        }
+        
+        .contact-details {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #1a3a6c;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+        
+        .contact-text h5 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+            color: #333;
+        }
+        
+        .contact-text p {
+            color: #666;
+        }
+        
+        .contact-form h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #1a3a6c;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a3a6c;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-col h5 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-col h5::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #bf9b30;
+        }
+        
+        .footer-col p {
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background-color: #bf9b30;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive Styles */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: row;
+            }
+            
+            .about-content {
+                flex-direction: row;
+                align-items: center;
+            }
+            
+            .about-img, .about-text {
+                flex: 1;
+            }
+            
+            .services-grid, .team-grid, .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+            
+            nav {
+                position: static;
+                width: auto;
+                height: auto;
+                background-color: transparent;
+                box-shadow: none;
+            }
+            
+            nav ul {
+                flex-direction: row;
+                padding: 0;
+            }
+            
+            nav ul li {
+                margin-bottom: 0;
+                margin-left: 2rem;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .hero h2 {
+                font-size: 3rem;
+            }
+            
+            .services-grid, .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>DEFENSA<span>MILITAR</span></h1>
+            </div>
+            <nav id="navbar">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#equipo">Equipo</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn" id="mobile-menu">
+                ☰
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Expertos en Derecho Militar a su Servicio</h2>
+                <p>Nuestro equipo de abogados especializados en derecho militar está comprometido a defender sus derechos y brindarle la mejor representación legal.</p>
+                <div class="hero-btns">
+                    <a href="#contacto" class="btn">Consulta Gratuita</a>
+                    <a href="#servicios" class="btn btn-secondary">Nuestros Servicios</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="nosotros">
+        <div class="container">
+            <div class="section-title">
+                <h3>Sobre Nosotros</h3>
+                <p>Somos un bufete de abogados especializado en derecho militar con más de 20 años de experiencia defendiendo a miembros de las Fuerzas Armadas.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1593115057322-e94b77572f20?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Equipo de abogados militares">
+                </div>
+                <div class="about-text">
+                    <h4>¿Por qué elegirnos?</h4>
+                    <p>En Defensa Militar, entendemos las complejidades únicas del sistema de justicia militar. Nuestro equipo está formado por abogados con experiencia militar previa, lo que nos proporciona una perspectiva invaluable para defender sus casos.</p>
+                    <p>Nos enorgullecemos de ofrecer representación legal de alta calidad a miembros activos, reservistas y veteranos de todas las ramas de las Fuerzas Armadas. Nuestro compromiso es proteger sus derechos, su carrera y su futuro.</p>
+                    <a href="#contacto" class="btn">Contáctenos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-title">
+                <h3>Nuestros Servicios</h3>
+                <p>Ofrecemos una amplia gama de servicios legales especializados para miembros de las Fuerzas Armadas y sus familias.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">⚖️</div>
+                    <div class="service-content">
+                        <h4>Cortes Marciales</h4>
+                        <p>Representación en todos los tipos de cortes marciales, desde casos sumarios hasta casos generales.</p>
+                        <a href="#contacto" class="btn btn-secondary">Más Información</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📝</div>
+                    <div class="service-content">
+                        <h4>Acciones Administrativas</h4>
+                        <p>Asistencia en juntas de separación, juntas de evaluación médica y otros procedimientos administrativos.</p>
+                        <a href="#contacto" class="btn btn-secondary">Más Información</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏥</div>
+                    <div class="service-content">
+                        <h4>Beneficios de Veteranos</h4>
+                        <p>Ayuda para obtener los beneficios de veteranos a los que tiene derecho, incluyendo apelaciones de reclamaciones denegadas.</p>
+                        <a href="#contacto" class="btn btn-secondary">Más Información</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <div class="service-content">
+                        <h4>Investigaciones Militares</h4>
+                        <p>Representación durante investigaciones militares, incluyendo interrogatorios y registros.</p>
+                        <a href="#contacto" class="btn btn-secondary">Más Información</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <div class="service-content">
+                        <h4>Apelaciones Militares</h4>
+                        <p>Representación en apelaciones ante tribunales militares de revisión y la Corte de Apelaciones para las Fuerzas Armadas.</p>
+                        <a href="#contacto" class="btn btn-secondary">Más Información</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👨‍👩‍👧‍👦</div>
+                    <div class="service-content">
+                        <h4>Derecho Familiar Militar</h4>
+                        <p>Asistencia en asuntos de derecho familiar específicos para militares, incluyendo divorcio y custodia.</p>
+                        <a href="#contacto" class="btn btn-secondary">Más Información</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="equipo">
+        <div class="container">
+            <div class="section-title">
+                <h3>Nuestro Equipo</h3>
+                <p>Conozca a nuestros abogados especializados en derecho militar, comprometidos con su defensa.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1556157382-97eda2f9e2bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Abogado Carlos Martínez">
+                    </div>
+                    <div class="team-info">
+                        <h4>Carlos Martínez</h4>
+                        <p>Abogado Principal</p>
+                        <p>Ex Coronel del Ejército con más de 25 años de experiencia en derecho militar.</p>
+                        <div class="team-social">
+                            <a href="#"><span>in</span></a>
+                            <a href="#"><span>f</span></a>
+                            <a href="#"><span>t</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Abogada Ana Rodríguez">
+                    </div>
+                    <div class="team-info">
+                        <h4>Ana Rodríguez</h4>
+                        <p>Especialista en Cortes Marciales</p>
+                        <p>Ex Fiscal Militar con amplia experiencia en litigios de cortes marciales.</p>
+                        <div class="team-social">
+                            <a href="#"><span>in</span></a>
+                            <a href="#"><span>f</span></a>
+                            <a href="#"><span>t</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Abogado Miguel Sánchez">
+                    </div>
+                    <div class="team-info">
+                        <h4>Miguel Sánchez</h4>
+                        <p>Especialista en Beneficios de Veteranos</p>
+                        <p>Veterano de la Armada con experiencia en reclamaciones de beneficios de veteranos.</p>
+                        <div class="team-social">
+                            <a href="#"><span>in</span></a>
+                            <a href="#"><span>f</span></a>
+                            <a href="#"><span>t</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h3>Testimonios</h3>
+                <p>Lo que dicen nuestros clientes sobre nuestros servicios legales.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>El equipo de Defensa Militar fue fundamental para mi caso. Su conocimiento del sistema de justicia militar y su dedicación fueron excepcionales. Gracias a ellos, pude mantener mi carrera militar.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Sargento Ramírez">
+                        <div class="author-info">
+                            <h5>Sargento Ramírez</h5>
+                            <p>Ejército de Tierra</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>Cuando enfrenté una junta de separación administrativa, pensé que mi carrera había terminado. El abogado Carlos Martínez me representó con profesionalismo y logró un resultado favorable. Estoy eternamente agradecido.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Teniente Pérez">
+                        <div class="author-info">
+                            <h5>Teniente Pérez</h5>
+                            <p>Fuerza Aérea</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h3>Contáctenos</h3>
+                <p>Estamos aquí para ayudarle. Contáctenos hoy para una consulta gratuita.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h4>Información de Contacto</h4>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            
+                            <div class="contact-text">
+                                <h5>Dirección</h5>
+                                <p>Av. Principal 123, Madrid, España</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <h5>Teléfono</h5>
+                                <p>+34 91 123 4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                <h5>Email</h5>
+                                <p>info@defensamilitar.es</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🕒</div>
+                            <div class="contact-text">
+                                <h5>Horario</h5>
+                                <p>Lunes - Viernes: 9:00 - 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h4>Envíenos un Mensaje</h4>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Nombre Completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Teléfono">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" required>
+                                <option value="" disabled selected>Seleccione un Servicio</option>
+                                <option value="cortes-marciales">Cortes Marciales</option>
+                                <option value="acciones-administrativas">Acciones Administrativas</option>
+                                <option value="beneficios-veteranos">Beneficios de Veteranos</option>
+                                <option value="investigaciones">Investigaciones Militares</option>
+                                <option value="apelaciones">Apelaciones Militares</option>
+                                <option value="derecho-familiar">Derecho Familiar Militar</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h5>Sobre Nosotros</h5>
+                    <p>Defensa Militar es un bufete de abogados especializado en derecho militar, comprometido con la defensa de los derechos de los miembros de las Fuerzas Armadas.</p>
+                    <div class="footer-social">
+                        <a href="#"><span>f</span></a>
+                        <a href="#"><span>t</span></a>
+                        <a href="#"><span>in</span></a>
+                        <a href="#"><span>ig</span></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#equipo">Equipo</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Servicios</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Cortes Marciales</a></li>
+                        <li><a href="#">Acciones Administrativas</a></li>
+                        <li><a href="#">Beneficios de Veteranos</a></li>
+                        <li><a href="#">Investigaciones Militares</a></li>
+                        <li><a href="#">Apelaciones Militares</a></li>
+                        <li><a href="#">Derecho Familiar Militar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Boletín Informativo</h5>
+                    <p>Suscríbase a nuestro boletín para recibir noticias y actualizaciones.</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Su Email" required>
+                        </div>
+                        <button type="submit" class="btn">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Defensa Militar. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const navbar = document.getElementById('navbar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,2903 @@
+---
+// Import styles
+
+// In Astro, we define reactive variables in the frontmatter
+// but we need to use client:load for interactive elements
+let isScrolled = false;
+let activeSection = "inicio";
+let mobileMenuOpen = false;
+---
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap">
+<meta charset="UTF-8">
+<head>
+  <title>Elite Defensa Militar</title>
+</head>
+
+<div class="camo-pattern-overlay"></div>
+
+<header class={`site-header ${isScrolled ? "scrolled" : ""}`}>
+  <div class="container header-container">
+    <div class="logo-container">
+      <div class="logo-shield">
+        <img src="https://cdn-icons-png.flaticon.com/512/2164/2164733.png" alt="Logo militar" class="shield-icon" />
+      </div>
+      <div class="logo-text">
+        <h1>ELITE<span>DEFENSA</span></h1>
+        <p class="tagline">Abogacía Militar Especializada</p>
+      </div>
+    </div>
+    
+    <nav class={mobileMenuOpen ? "active" : ""}>
+      <ul>
+        <li><a href="#inicio" class={activeSection === "inicio" ? "active" : ""}>Inicio</a></li>
+        <li><a href="#nosotros" class={activeSection === "nosotros" ? "active" : ""}>Nosotros</a></li>
+        <li><a href="#servicios" class={activeSection === "servicios" ? "active" : ""}>Servicios</a></li>
+        <li><a href="#casos" class={activeSection === "casos" ? "active" : ""}>Casos</a></li>
+        <li><a href="#equipo" class={activeSection === "equipo" ? "active" : ""}>Equipo</a></li>
+        <li><a href="#contacto" class={activeSection === "contacto" ? "active" : ""}>Contacto</a></li>
+      </ul>
+    </nav>
+    
+    <div class="header-actions">
+      <a href="#contacto" class="btn btn-primary btn-sm">Consulta Gratuita</a>
+      <div class={`mobile-menu-btn ${mobileMenuOpen ? "active" : ""}`} id="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-video-container">
+    <div class="hero-overlay"></div>
+    <video autoplay muted loop class="hero-video">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-soldiers-marching-in-a-parade-4590-large.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title">Defendemos con Honor a Quienes Sirven con Honor</h1>
+      <p class="hero-description">
+        Somos un bufete de abogados especializado en derecho militar, comprometidos con la defensa de los derechos e intereses de los miembros de las Fuerzas Armadas.
+      </p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn btn-primary btn-lg">
+          <span class="btn-icon">📞</span>
+          <span>Consulta Confidencial</span>
+        </a>
+        <a href="#servicios" class="btn btn-primary btn-lg">
+          <span class="btn-icon">🔍</span>
+          <span>Nuestros Servicios</span>
+        </a>
+      </div>
+      <div class="hero-features">
+        <div class="hero-feature">
+          <div class="feature-icon">✓</div>
+          <span>Abogados Ex-Militares</span>
+        </div>
+        <div class="hero-feature">
+          <div class="feature-icon">✓</div>
+          <span>Disponibilidad 24/7</span>
+        </div>
+        <div class="hero-feature">
+          <div class="feature-icon">✓</div>
+          <span>Primera Consulta Gratuita</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-military-insignia"></div>
+</section>
+
+<section class="trust-badges">
+  <div class="container">
+    <div class="badges-grid">
+      <div class="badge-item">
+        <div class="badge-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/3176/3176367.png" alt="Certificación" />
+        </div>
+        <div class="badge-text">
+          <h4>Certificados</h4>
+          <p>Por la Asociación de Abogados Militares</p>
+        </div>
+      </div>
+      <div class="badge-item">
+        <div class="badge-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/2910/2910756.png" alt="Experiencia" />
+        </div>
+        <div class="badge-text">
+          <h4>25+ Años</h4>
+          <p>De experiencia en derecho militar</p>
+        </div>
+      </div>
+      <div class="badge-item">
+        <div class="badge-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/3588/3588614.png" alt="Casos Ganados" />
+        </div>
+        <div class="badge-text">
+          <h4>98% Éxito</h4>
+          <p>En casos de cortes marciales</p>
+        </div>
+      </div>
+      <div class="badge-item">
+        <div class="badge-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Clientes" />
+        </div>
+        <div class="badge-text">
+          <h4>1000+ Clientes</h4>
+          <p>Militares satisfechos</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="nosotros">
+  <div class="camo-accent"></div>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-subtitle">Conozca Nuestra Firma</span>
+      <h2 class="section-title">Experiencia Militar y Legal a Su Servicio</h2>
+      <div class="title-decoration">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    
+    <div class="about-grid">
+      <div class="about-content">
+        <p class="lead-text">
+          Elite Defensa es un bufete de abogados fundado por ex-militares con más de 25 años de experiencia combinada en el sistema de justicia militar.
+        </p>
+        <p>
+          Entendemos las complejidades únicas del derecho militar y los desafíos que enfrentan los miembros del servicio. Nuestra misión es proporcionar representación legal excepcional a aquellos que han dedicado sus vidas a servir a nuestro país.
+        </p>
+        
+        <div class="about-values">
+          <div class="value-item">
+            <div class="value-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/2521/2521636.png" alt="Honor" />
+            </div>
+            <div class="value-content">
+              <h4>Honor</h4>
+              <p>Mantenemos los más altos estándares éticos en nuestra práctica legal.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/4225/4225683.png" alt="Compromiso" />
+            </div>
+            <div class="value-content">
+              <h4>Compromiso</h4>
+              <p>Dedicamos todos nuestros recursos para lograr el mejor resultado posible.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/2082/2082841.png" alt="Excelencia" />
+            </div>
+            <div class="value-content">
+              <h4>Excelencia</h4>
+              <p>Buscamos la perfección en cada aspecto de nuestra representación legal.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-cta">
+          <a href="#equipo" class="btn btn-secondary">Conocer al Equipo</a>
+          <a href="#contacto" class="btn btn-outline-secondary">Programar Consulta</a>
+        </div>
+      </div>
+      
+      <div class="about-image-container">
+        <div class="about-image-main">
+          <img src="https://images.unsplash.com/photo-1579912437766-7896df6d3cd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Abogados militares en oficina" />
+        </div>
+        <div class="about-image-overlay">
+          <img src="https://images.unsplash.com/photo-1579912437766-7896df6d3cd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Tribunal militar" />
+          <div class="experience-badge">
+            <span class="years">25+</span>
+            <span class="text">Años de<br />Experiencia</span>
+          </div>
+        </div>
+        <div class="military-badge"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicios">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-subtitle">Áreas de Práctica</span>
+      <h2 class="section-title">Servicios Legales Especializados</h2>
+      <div class="title-decoration">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <p class="section-description">
+        Ofrecemos una amplia gama de servicios legales diseñados específicamente para miembros activos de las fuerzas armadas, veteranos y sus familias.
+      </p>
+    </div>
+    
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/3100/3100019.png" alt="Cortes Marciales" />
+        </div>
+        <h3>Defensa en Cortes Marciales</h3>
+        <p>
+          Representación agresiva y estratégica en todos los tipos de cortes marciales, desde delitos menores hasta casos capitales.
+        </p>
+        <ul class="service-features">
+          <li>Investigación preliminar</li>
+          <li>Audiencias del Artículo 32</li>
+          <li>Negociación de cargos</li>
+          <li>Representación en juicio</li>
+        </ul>
+        <a href="#contacto" class="service-link">
+          Consultar <span class="arrow">→</span>
+        </a>
+        <div class="service-bg-icon">⚖️</div>
+        <div class="service-camo-corner"></div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/3269/3269065.png" alt="Acciones Administrativas" />
+        </div>
+        <h3>Acciones Administrativas</h3>
+        <p>
+          Asistencia en procedimientos administrativos que pueden afectar su carrera militar y beneficios futuros.
+        </p>
+        <ul class="service-features">
+          <li>Juntas de separación</li>
+          <li>Evaluaciones negativas</li>
+          <li>Acciones disciplinarias</li>
+          <li>Descalificaciones de seguridad</li>
+        </ul>
+        <a href="#contacto" class="service-link">
+          Consultar <span class="arrow">→</span>
+        </a>
+        <div class="service-bg-icon">📝</div>
+        <div class="service-camo-corner"></div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/2633/2633334.png" alt="Beneficios de Veteranos" />
+        </div>
+        <h3>Beneficios de Veteranos</h3>
+        <p>
+          Ayudamos a los veteranos a navegar por el complejo sistema de beneficios para obtener la compensación que merecen.
+        </p>
+        <ul class="service-features">
+          <li>Reclamaciones por discapacidad</li>
+          <li>Apelaciones de beneficios</li>
+          <li>Atención médica de VA</li>
+          <li>Beneficios educativos</li>
+        </ul>
+        <a href="#contacto" class="service-link">
+          Consultar <span class="arrow">→</span>
+        </a>
+        <div class="service-bg-icon">🏥</div>
+        <div class="service-camo-corner"></div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/2641/2641657.png" alt="Investigaciones Militares" />
+        </div>
+        <h3>Investigaciones Militares</h3>
+        <p>
+          Representación durante investigaciones militares para proteger sus derechos y carrera desde el principio.
+        </p>
+        <ul class="service-features">
+          <li>Interrogatorios de CID/NCIS</li>
+          <li>Investigaciones de comandantes</li>
+          <li>Investigaciones de seguridad</li>
+          <li>Pruebas de polígrafo</li>
+        </ul>
+        <a href="#contacto" class="service-link">
+          Consultar <span class="arrow">→</span>
+        </a>
+        <div class="service-bg-icon">🔍</div>
+        <div class="service-camo-corner"></div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/2247/2247728.png" alt="Apelaciones Militares" />
+        </div>
+        <h3>Apelaciones Militares</h3>
+        <p>
+          Representación experta en todos los niveles del proceso de apelación militar para corregir errores legales.
+        </p>
+        <ul class="service-features">
+          <li>Tribunales de Revisión Criminal</li>
+          <li>Corte de Apelaciones para las Fuerzas Armadas</li>
+          <li>Corte Suprema de los EE.UU.</li>
+          <li>Peticiones de clemencia</li>
+        </ul>
+        <a href="#contacto" class="service-link">
+          Consultar <span class="arrow">→</span>
+        </a>
+        <div class="service-bg-icon">📋</div>
+        <div class="service-camo-corner"></div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/2454/2454312.png" alt="Derecho Familiar Militar" />
+        </div>
+        <h3>Derecho Familiar Militar</h3>
+        <p>
+          Asistencia en asuntos familiares únicos que enfrentan los miembros del servicio y sus familias.
+        </p>
+        <ul class="service-features">
+          <li>Divorcio militar</li>
+          <li>Custodia durante despliegues</li>
+          <li>División de pensiones militares</li>
+          <li>Órdenes de protección</li>
+        </ul>
+        <a href="#contacto" class="service-link">
+          Consultar <span class="arrow">→</span>
+        </a>
+        <div class="service-bg-icon">👨‍👩‍👧‍👦</div>
+        <div class="service-camo-corner"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="camo-overlay"></div>
+  <div class="container">
+    <div class="cta-grid">
+      <div class="cta-content">
+        <h2>¿Enfrenta un problema legal militar?</h2>
+        <p>No enfrente el sistema de justicia militar solo. Nuestro equipo de abogados especializados está listo para defender sus derechos y su carrera.</p>
+        <ul class="cta-features">
+          <li>
+            <span class="icon">✓</span>
+            <span>Consulta inicial gratuita y confidencial</span>
+          </li>
+          <li>
+            <span class="icon">✓</span>
+            <span>Disponibilidad 24/7 para emergencias legales</span>
+          </li>
+          <li>
+            <span class="icon">✓</span>
+            <span>Representación en bases militares en todo el mundo</span>
+          </li>
+        </ul>
+        <div class="cta-buttons">
+          <a href="#contacto" class="btn btn-primary btn-lg">Programar Consulta</a>
+          <a href="tel:+123456789" class="btn btn-outline btn-lg">
+            <span class="btn-icon">📞</span>
+            <span>Llamar Ahora</span>
+          </a>
+        </div>
+      </div>
+      <div class="cta-image">
+        <img src="https://images.unsplash.com/photo-1598620617148-c9e8ddee6711?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Soldados en formación" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case-results" id="casos">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-subtitle">Historial de Éxitos</span>
+      <h2 class="section-title">Casos Destacados</h2>
+      <div class="title-decoration">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <p class="section-description">
+        Nuestro historial de éxito habla por sí mismo. Estos son algunos de los casos en los que hemos ayudado a miembros del servicio a obtener resultados favorables.
+      </p>
+    </div>
+    
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-category">Corte Marcial</div>
+          <div class="case-result">Caso Desestimado</div>
+        </div>
+        <h3 class="case-title">Defensa Exitosa en Caso de Artículo 120</h3>
+        <p class="case-description">
+          Representamos a un Sargento del Ejército acusado de violaciones al Artículo 120. Después de una investigación exhaustiva y presentación de pruebas exculpatorias, todos los cargos fueron desestimados antes del juicio.
+        </p>
+        <div class="case-meta">
+          <div class="meta-item">
+            <span class="meta-label">Rama:</span>
+            <span class="meta-value">Ejército</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Ubicación:</span>
+            <span class="meta-value">Fort Bragg, NC</span>
+          </div>
+        </div>
+        <div class="case-camo-corner"></div>
+      </div>
+      
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-category">Acción Administrativa</div>
+          <div class="case-result">Reincorporado</div>
+        </div>
+        <h3 class="case-title">Oficial Naval Reincorporado Después de Separación Injusta</h3>
+        <p class="case-description">
+          Ayudamos a un Teniente de la Marina a impugnar con éxito una junta de separación administrativa, resultando en su reincorporación completa con pago retroactivo y restauración de rango.
+        </p>
+        <div class="case-meta">
+          <div class="meta-item">
+            <span class="meta-label">Rama:</span>
+            <span class="meta-value">Marina</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Ubicación:</span>
+            <span class="meta-value">San Diego, CA</span>
+          </div>
+        </div>
+        <div class="case-camo-corner"></div>
+      </div>
+      
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-category">Beneficios de Veteranos</div>
+          <div class="case-result">100% Concedido</div>
+        </div>
+        <h3 class="case-title">Veterano Recibe Calificación de Discapacidad del 100%</h3>
+        <p class="case-description">
+          Representamos a un veterano de la Fuerza Aérea cuya reclamación inicial de discapacidad fue denegada. Después de nuestra apelación, recibió una calificación del 100% con beneficios retroactivos.
+        </p>
+        <div class="case-meta">
+          <div class="meta-item">
+            <span class="meta-label">Rama:</span>
+            <span class="meta-value">Fuerza Aérea</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Ubicación:</span>
+            <span class="meta-value">Denver, CO</span>
+          </div>
+        </div>
+        <div class="case-camo-corner"></div>
+      </div>
+      
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-category">Apelación Militar</div>
+          <div class="case-result">Sentencia Reducida</div>
+        </div>
+        <h3 class="case-title">Reducción Significativa de Sentencia en Apelación</h3>
+        <p class="case-description">
+          Logramos una reducción significativa de la sentencia para un Marine condenado, identificando errores legales clave durante el juicio original que llevaron a una revisión favorable.
+        </p>
+        <div class="case-meta">
+          <div class="meta-item">
+            <span class="meta-label">Rama:</span>
+            <span class="meta-value">Marines</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Ubicación:</span>
+            <span class="meta-value">Quantico, VA</span>
+          </div>
+        </div>
+        <div class="case-camo-corner"></div>
+      </div>
+    </div>
+    
+    <div class="cases-cta">
+      <a href="#contacto" class="btn btn-secondary">Discutir Su Caso</a>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="camo-pattern-light"></div>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-subtitle">Testimonios</span>
+      <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+      <div class="title-decoration">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    
+    <div class="testimonials-slider">
+      <div class="testimonial-card">
+        <div class="testimonial-rating">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <p class="testimonial-text">
+          "Elite Defensa cambió mi vida. Estaba enfrentando una corte marcial que habría terminado mi carrera, pero gracias a su experiencia y dedicación, todos los cargos fueron desestimados. No puedo agradecerles lo suficiente."
+        </p>
+        <div class="testimonial-author">
+          <div class="author-image">
+            <img src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Cliente militar" />
+          </div>
+          <div class="author-info">
+            <h4>Sargento J. Martínez</h4>
+            <p>Ejército de los EE.UU.</p>
+          </div>
+        </div>
+        <div class="testimonial-camo-corner"></div>
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-rating">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <p class="testimonial-text">
+          "Como veterana, luché durante años para obtener los beneficios que merecía. El equipo de Elite Defensa no solo ganó mi caso, sino que me trató con respeto y dignidad durante todo el proceso. Son verdaderos defensores de los militares."
+        </p>
+        <div class="testimonial-author">
+          <div class="author-image">
+            <img src="https://images.unsplash.com/photo-1607583444857-73a3d0c7cca4?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Cliente militar femenina" />
+          </div>
+          <div class="author-info">
+            <h4>Teniente A. Rodríguez</h4>
+            <p>Veterana de la Marina</p>
+          </div>
+        </div>
+        <div class="testimonial-camo-corner"></div>
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-rating">
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+        </div>
+        <p class="testimonial-text">
+          "Enfrentaba una separación administrativa que habría resultado en la pérdida de todos mis beneficios. Elite Defensa luchó incansablemente por mí y logró que me retirara honorablemente. Su conocimiento del sistema militar es incomparable."
+        </p>
+        <div class="testimonial-author">
+          <div class="author-image">
+            <img src="https://images.unsplash.com/photo-1622979135240-caa6a8e0c6bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Cliente militar" />
+          </div>
+          <div class="author-info">
+            <h4>Capitán R. Sánchez</h4>
+            <p>Fuerza Aérea de los EE.UU.</p>
+          </div>
+        </div>
+        <div class="testimonial-camo-corner"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="equipo">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-subtitle">Nuestros Profesionales</span>
+      <h2 class="section-title">Equipo de Abogados Militares</h2>
+      <div class="title-decoration">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <p class="section-description">
+        Nuestro equipo está compuesto por abogados con experiencia militar directa, lo que nos proporciona una perspectiva única para entender y defender sus casos.
+      </p>
+    </div>
+    
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="member-image">
+          <img src="https://images.unsplash.com/photo-1612459284970-e8f027596279?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Coronel (R) Carlos Vega" />
+          <div class="member-overlay">
+            <div class="member-social">
+              <a href="#" class="social-link"><span>in</span></a>
+              <a href="#" class="social-link"><span>f</span></a>
+              <a href="#" class="social-link"><span>t</span></a>
+            </div>
+          </div>
+          <div class="military-rank-badge">Coronel</div>
+        </div>
+        <div class="member-info">
+          <h3>Coronel (R) Carlos Vega</h3>
+          <span class="member-position">Abogado Principal</span>
+          <p>Ex Coronel del Ejército con más de 25 años de experiencia en derecho militar y litigios en cortes marciales.</p>
+          <div class="member-specialties">
+            <span>Cortes Marciales</span>
+            <span>Apelaciones</span>
+          </div>
+        </div>
+        <div class="member-camo-corner"></div>
+      </div>
+      
+      <div class="team-member">
+        <div class="member-image">
+          <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Capitán (R) Ana Rodríguez" />
+          <div class="member-overlay">
+            <div class="member-social">
+              <a href="#" class="social-link"><span>in</span></a>
+              <a href="#" class="social-link"><span>f</span></a>
+              <a href="#" class="social-link"><span>t</span></a>
+            </div>
+          </div>
+          <div class="military-rank-badge">Capitán</div>
+        </div>
+        <div class="member-info">
+          <h3>Capitán (R) Ana Rodríguez</h3>
+          <span class="member-position">Especialista en Cortes Marciales</span>
+          <p>Ex Fiscal Militar con amplia experiencia en litigios de cortes marciales y derecho penal militar.</p>
+          <div class="member-specialties">
+            <span>Defensa Criminal</span>
+            <span>Investigaciones</span>
+          </div>
+        </div>
+        <div class="member-camo-corner"></div>
+      </div>
+      
+      <div class="team-member">
+        <div class="member-image">
+          <img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Teniente (R) Miguel Sánchez" />
+          <div class="member-overlay">
+            <div class="member-social">
+              <a href="#" class="social-link"><span>in</span></a>
+              <a href="#" class="social-link"><span>f</span></a>
+              <a href="#" class="social-link"><span>t</span></a>
+            </div>
+          </div>
+          <div class="military-rank-badge">Teniente</div>
+        </div>
+        <div class="member-info">
+          <h3>Teniente (R) Miguel Sánchez</h3>
+          <span class="member-position">Especialista en Beneficios</span>
+          <p>Veterano de la Armada con experiencia en reclamaciones de beneficios de veteranos y apelaciones.</p>
+          <div class="member-specialties">
+            <span>Beneficios VA</span>
+            <span>Apelaciones</span>
+          </div>
+        </div>
+        <div class="member-camo-corner"></div>
+      </div>
+      
+      <div class="team-member">
+        <div class="member-image">
+          <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Mayor (R) Laura Torres" />
+          <div class="member-overlay">
+            <div class="member-social">
+              <a href="#" class="social-link"><span>in</span></a>
+              <a href="#" class="social-link"><span>f</span></a>
+              <a href="#" class="social-link"><span>t</span></a>
+            </div>
+          </div>
+          <div class="military-rank-badge">Mayor</div>
+        </div>
+        <div class="member-info">
+          <h3>Mayor (R) Laura Torres</h3>
+          <span class="member-position">Especialista en Derecho Familiar</span>
+          <p>Ex Asesora Legal de la Fuerza Aérea especializada en asuntos familiares militares y divorcios.</p>
+          <div class="member-specialties">
+            <span>Derecho Familiar</span>
+            <span>Custodia</span>
+          </div>
+        </div>
+        <div class="member-camo-corner"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="camo-pattern-light"></div>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-subtitle">Preguntas Frecuentes</span>
+      <h2 class="section-title">Respuestas a Sus Dudas</h2>
+      <div class="title-decoration">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>¿Cuándo debo contratar a un abogado militar?</h3>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Debe contratar a un abogado militar tan pronto como sepa que está bajo investigación o enfrenta cargos. La intervención temprana puede marcar una gran diferencia en el resultado de su caso.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>¿Qué diferencia a un abogado militar de un abogado civil?</h3>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Los abogados militares tienen conocimiento especializado del Código Uniforme de Justicia Militar (UCMJ), los procedimientos de las cortes marciales y la cultura militar, lo que es crucial para casos dentro del sistema de justicia militar.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>¿Puedo usar un abogado militar si ya tengo un defensor militar asignado?</h3>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Sí, tiene derecho a contratar a un abogado civil con experiencia militar además de su defensor militar asignado. Ambos pueden trabajar juntos en su defensa.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>¿Cuánto cuesta contratar a un abogado militar?</h3>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Los costos varían según la complejidad del caso. Ofrecemos consultas iniciales gratuitas y opciones de pago flexibles. Recuerde que invertir en una defensa adecuada puede proteger su carrera, libertad y beneficios futuros.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>¿Pueden representarme si estoy estacionado en el extranjero?</h3>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Sí, nuestros abogados tienen experiencia representando a clientes en bases militares de todo el mundo. Podemos viajar a su ubicación o proporcionar representación remota según sea necesario.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>¿Qué debo hacer si estoy bajo investigación?</h3>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>No hable con investigadores sin un abogado presente. Contacte a un abogado militar de inmediato para proteger sus derechos. Recuerde que tiene derecho a permanecer en silencio y a tener representación legal.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-header">
+          <span class="section-subtitle">Póngase en Contacto</span>
+          <h2 class="section-title">Estamos Aquí Para Ayudarle</h2>
+          <div class="title-decoration">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <p class="section-description">
+            Contáctenos hoy para programar una consulta confidencial. Nuestro equipo está disponible 24/7 para emergencias legales militares.
+          </p>
+        </div>
+        
+        <div class="contact-methods">
+          <div class="contact-method">
+            <div class="method-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/1295/1295181.png" alt="Ubicación" />
+            </div>
+            <div class="method-details">
+              <h3>Oficina Principal</h3>
+              <p>123 Avenida Militar, Ciudad Capital</p>
+            </div>
+          </div>
+          
+          <div class="contact-method">
+            <div class="method-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/455/455705.png" alt="Teléfono" />
+            </div>
+            <div class="method-details">
+              <h3>Teléfono</h3>
+              <p>+123 456 7890 (Disponible 24/7)</p>
+            </div>
+          </div>
+          
+          <div class="contact-method">
+            <div class="method-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email" />
+            </div>
+            <div class="method-details">
+              <h3>Email</h3>
+              <p>info@elitedefensa.com</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-social">
+          <h3>Síganos</h3>
+          <div class="social-links">
+            <a href="#" class="social-link"><span>f</span></a>
+            <a href="#" class="social-link"><span>t</span></a>
+            <a href="#" class="social-link"><span>in</span></a>
+            <a href="#" class="social-link"><span>ig</span></a>
+          </div>
+        </div>
+        
+        <div class="contact-map">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215573036728!2d-73.9776349!3d40.7614664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f07d5da561%3A0x61f6aa300ba8339d!2sGrand%20Central%20Terminal!5e0!3m2!1sen!2sus!4v1616603873693!5m2!1sen!2sus" 
+            width="100%" 
+            height="250" 
+            style={{ border: 0 }} 
+            allowFullScreen 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+      
+      <div class="contact-form-container">
+        <div class="military-insignia-bg"></div>
+        <div class="form-header">
+          <h3>Solicitar Consulta Confidencial</h3>
+          <p>Complete el formulario a continuación y nos pondremos en contacto con usted en 24 horas.</p>
+        </div>
+        
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name">Nombre Completo*</label>
+            <input type="text" id="name" class="form-control" required />
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email*</label>
+              <input type="email" id="email" class="form-control" required />
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Teléfono*</label>
+              <input type="tel" id="phone" class="form-control" required />
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="military-branch">Rama Militar</label>
+              <select id="military-branch" class="form-control">
+                <option value="" disabled selected>Seleccione una opción</option>
+                <option value="army">Ejército</option>
+                <option value="navy">Marina</option>
+                <option value="air-force">Fuerza Aérea</option>
+                <option value="marines">Marines</option>
+                <option value="coast-guard">Guardia Costera</option>
+                <option value="national-guard">Guardia Nacional</option>
+                <option value="veteran">Veterano</option>
+                <option value="other">Otro</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="service-type">Servicio Requerido*</label>
+              <select id="service-type" class="form-control" required>
+                <option value="" disabled selected>Seleccione una opción</option>
+                <option value="court-martial">Corte Marcial</option>
+                <option value="admin-action">Acción Administrativa</option>
+                <option value="veterans-benefits">Beneficios de Veteranos</option>
+                <option value="investigation">Investigación Militar</option>
+                <option value="appeal">Apelación Militar</option>
+                <option value="family-law">Derecho Familiar Militar</option>
+                <option value="other">Otro</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Descripción del Caso*</label>
+            <textarea id="message" class="form-control" rows="5" required></textarea>
+          </div>
+          
+          <div class="form-group form-check">
+            <input type="checkbox" id="confidentiality" class="form-check-input" required />
+            <label for="confidentiality" class="form-check-label">
+              Entiendo que la información proporcionada será tratada con estricta confidencialidad.
+            </label>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">
+              Enviar Solicitud
+            </button>
+            <p class="form-disclaimer">
+              * Al enviar este formulario, acepta ser contactado por nuestro equipo legal.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-camo-pattern"></div>
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-widget about-widget">
+          <div class="footer-logo">
+            <div class="logo-shield">
+              <img src="https://cdn-icons-png.flaticon.com/512/2164/2164733.png" alt="Logo militar" class="shield-icon" />
+            </div>
+            <div class="logo-text">
+              <h2>ELITE<span>DEFENSA</span></h2>
+              <p class="tagline">Abogacía Militar Especializada</p>
+            </div>
+          </div>
+          <p class="about-text">
+            Elite Defensa es un bufete de abogados especializado en derecho militar, comprometido con la defensa de los derechos e intereses de los miembros de las Fuerzas Armadas y veteranos.
+          </p>
+          <div class="footer-social">
+            <a href="#" class="social-link"><span>f</span></a>
+            <a href="#" class="social-link"><span>t</span></a>
+            <a href="#" class="social-link"><span>in</span></a>
+            <a href="#" class="social-link"><span>ig</span></a>
+          </div>
+        </div>
+        
+        <div class="footer-widget links-widget">
+          <h3 class="widget-title">Enlaces Rápidos</h3>
+          <ul class="footer-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#casos">Casos</a></li>
+            <li><a href="#equipo">Equipo</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-widget services-widget">
+          <h3 class="widget-title">Nuestros Servicios</h3>
+          <ul class="footer-links">
+            <li><a href="#servicios">Defensa en Cortes Marciales</a></li>
+            <li><a href="#servicios">Acciones Administrativas</a></li>
+            <li><a href="#servicios">Beneficios de Veteranos</a></li>
+            <li><a href="#servicios">Investigaciones Militares</a></li>
+            <li><a href="#servicios">Apelaciones Militares</a></li>
+            <li><a href="#servicios">Derecho Familiar Militar</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-widget contact-widget">
+          <h3 class="widget-title">Contacto</h3>
+          <ul class="contact-info">
+            <li>
+              <span class="icon">📍</span>
+              <span>123 Avenida Militar, Ciudad Capital</span>
+            </li>
+            <li>
+              <span class="icon">📞</span>
+              <span>+123 456 7890 (24/7)</span>
+            </li>
+            <li>
+              <span class="icon">✉️</span>
+              <span>info@elitedefensa.com</span>
+            </li>
+            <li>
+              <span class="icon">🕒</span>
+              <span>Lun-Vie: 9:00 - 18:00</span>
+            </li>
+          </ul>
+          <div class="emergency-contact">
+            <h4>¿Emergencia Legal?</h4>
+            <a href="tel:+123456789" class="emergency-phone">
+              <span class="phone-icon">🔴</span>
+              <span>Línea Directa 24/7</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-content">
+        <p class="copyright">
+          &copy; {new Date().getFullYear()} Elite Defensa Militar. Todos los derechos reservados.
+        </p>
+        <ul class="footer-bottom-links">
+          <li><a href="#">Términos y Condiciones</a></li>
+          <li><a href="#">Política de Privacidad</a></li>
+          <li><a href="#">Aviso Legal</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Client-side JavaScript for interactivity
+  document.addEventListener('DOMContentLoaded', () => {
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    let mobileMenuOpen = false;
+    
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuOpen = !mobileMenuOpen;
+        const nav = document.querySelector('nav');
+        if (mobileMenuOpen) {
+          mobileMenuBtn.classList.add('active');
+          nav.classList.add('active');
+        } else {
+          mobileMenuBtn.classList.remove('active');
+          nav.classList.remove('active');
+        }
+      });
+    }
+    
+    // Scroll functionality
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      const header = document.querySelector('.site-header');
+      
+      if (isScrolled) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      
+      // Determine active section based on scroll position
+      const sections = ["inicio", "nosotros", "servicios", "casos", "equipo", "contacto"];
+      for (const section of sections.reverse()) {
+        const element = document.getElementById(section);
+        if (element && window.scrollY >= element.offsetTop - 100) {
+          // Update active nav link
+          document.querySelectorAll('nav a').forEach(link => {
+            link.classList.remove('active');
+          });
+          document.querySelector(`nav a[href="#${section}"]`)?.classList.add('active');
+          break;
+        }
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    // FAQ accordion functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+      const icon = item.querySelector('.faq-icon');
+      
+      question.addEventListener('click', () => {
+        const isOpen = answer.style.display === 'block';
+        
+        // Close all other answers
+        document.querySelectorAll('.faq-answer').forEach(a => {
+          a.style.display = 'none';
+        });
+        document.querySelectorAll('.faq-icon').forEach(i => {
+          i.textContent = '+';
+        });
+        
+        // Toggle current answer
+        if (!isOpen) {
+          answer.style.display = 'block';
+          icon.textContent = '−';
+        }
+      });
+    });
+    
+    // Initialize scroll handler on load
+    handleScroll();
+  });
+</script>
+<style>
+    /* ===== VARIABLES ===== */
+:root {
+  --primary-color: #1a3a6c;
+  --primary-light: #2c5eaa;
+  --primary-dark: #0e2240;
+  --secondary-color: #c8a35f;
+  --secondary-light: #e0c088;
+  --secondary-dark: #a88339;
+  --accent-color: #d64045;
+  --text-color: #333333;
+  --text-light: #666666;
+  --text-lighter: #999999;
+  --bg-color: #ffffff;
+  --bg-light: #f8f9fa;
+  --bg-dark: #0a1622;
+  --border-color: #e0e0e0;
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+  --box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  --box-shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
+  --font-primary: "Montserrat", sans-serif;
+  --font-secondary: "Playfair Display", serif;
+}
+
+/* ===== RESET & BASE STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: var(--text-color);
+  font-size: 16px;
+  background-color: var(--bg-color);
+  overflow-x: hidden;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  padding: 0 1.5rem;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.section-subtitle {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-family: var(--font-secondary);
+}
+
+.section-description {
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  max-width: 700px;
+  font-size: 1.1rem;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.title-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.title-decoration span {
+  display: block;
+  height: 3px;
+  background-color: var(--secondary-color);
+}
+
+.title-decoration span:nth-child(1) {
+  width: 30px;
+}
+
+.title-decoration span:nth-child(2) {
+  width: 60px;
+}
+
+.title-decoration span:nth-child(3) {
+  width: 30px;
+}
+
+.lead-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1rem;
+  text-align: center;
+  border: 2px solid transparent;
+  gap: 0.5rem;
+}
+
+.btn-sm {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+.btn-lg {
+  padding: 1.1rem 2.2rem;
+  font-size: 1.1rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(26, 58, 108, 0.2);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+  border-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-dark);
+  border-color: var(--secondary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(200, 163, 95, 0.2);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(26, 58, 108, 0.2);
+}
+
+.btn-outline-secondary {
+  background-color: transparent;
+  border: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--secondary-color);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(200, 163, 95, 0.2);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+}
+
+/* ===== HEADER ===== */
+.site-header {
+  background-color: rgba(255, 255, 255, 0.95);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: var(--transition);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.site-header.scrolled {
+  padding: 0.7rem 0;
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-shield {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.logo-text h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 0;
+  letter-spacing: 1px;
+  font-family: var(--font-secondary);
+}
+
+.logo-text span {
+  color: var(--secondary-color);
+}
+
+.tagline {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+nav {
+  position: fixed;
+  top: 70px;
+  left: -100%;
+  width: 80%;
+  height: calc(100vh - 70px);
+  background-color: var(--bg-color);
+  transition: left 0.3s ease;
+  box-shadow: var(--box-shadow);
+  z-index: 999;
+  padding: 2rem;
+}
+
+nav.active {
+  left: 0;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-color);
+  position: relative;
+  padding-bottom: 5px;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: var(--transition);
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: var(--primary-color);
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+  width: 100%;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.mobile-menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.mobile-menu-btn span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: var(--transition);
+}
+
+.mobile-menu-btn.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  overflow: hidden;
+}
+
+.hero-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(10, 22, 34, 0.9) 0%, rgba(10, 22, 34, 0.7) 100%);
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  max-width: 700px;
+  color: white;
+  padding: 2rem 0;
+}
+
+.hero-badge {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  transform: translateY(0);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: white;
+  font-family: var(--font-secondary);
+  line-height: 1.1;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-features {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+}
+
+.feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: var(--secondary-color);
+  color: white;
+  border-radius: 50%;
+  font-size: 0.8rem;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.mouse {
+  width: 30px;
+  height: 50px;
+  border: 2px solid white;
+  border-radius: 20px;
+  position: relative;
+}
+
+.wheel {
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    top: 10px;
+  }
+  100% {
+    opacity: 0;
+    top: 30px;
+  }
+}
+
+.arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.arrow span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
+  transform: rotate(45deg);
+  animation: arrow 2s infinite;
+}
+
+.arrow span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.arrow span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-5px, -5px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+}
+
+/* ===== TRUST BADGES ===== */
+.trust-badges {
+  padding: 3rem 0;
+  background-color: var(--bg-light);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.badge-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
+
+.badge-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.badge-icon {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.badge-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: invert(27%) sepia(51%) saturate(1000%) hue-rotate(182deg) brightness(95%) contrast(97%);
+}
+
+.badge-text h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+  color: var(--primary-color);
+}
+
+.badge-text p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin: 0;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about {
+  background-color: var(--bg-color);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-values {
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.value-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: var(--bg-light);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.value-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow);
+}
+
+.value-icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.value-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: invert(27%) sepia(51%) saturate(1000%) hue-rotate(182deg) brightness(95%) contrast(97%);
+}
+
+.value-content h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.value-content p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.about-cta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.about-image-container {
+  position: relative;
+  height: 500px;
+}
+
+.about-image-main {
+  width: 80%;
+  height: 70%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.about-image-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.about-image-overlay {
+  width: 60%;
+  height: 60%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.about-image-overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.experience-badge {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 120px;
+  height: 120px;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: var(--box-shadow);
+  z-index: 3;
+}
+
+.experience-badge .years {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.experience-badge .text {
+  font-size: 0.8rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* ===== SERVICES SECTION ===== */
+.services {
+  background-color: var(--bg-light);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 0;
+  background-color: var(--primary-color);
+  transition: var(--transition-slow);
+  z-index: -1;
+}
+
+.service-card:hover::before {
+  height: 100%;
+}
+
+.service-icon {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 1.5rem;
+}
+
+.service-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: invert(27%) sepia(51%) saturate(1000%) hue-rotate(182deg) brightness(95%) contrast(97%);
+  transition: var(--transition);
+}
+
+.service-card:hover .service-icon img {
+  filter: invert(74%) sepia(11%) saturate(1122%) hue-rotate(358deg) brightness(92%) contrast(86%);
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+.service-card:hover h3 {
+  color: var(--primary-dark);
+}
+
+.service-card p {
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+}
+
+.service-features {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.service-features li {
+  position: relative;
+  margin-bottom: 0.75rem;
+  color: var(--text-light);
+}
+
+.service-features li::before {
+  content: "✓";
+  position: absolute;
+  left: -1.5rem;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.service-link .arrow {
+  margin-left: 5px;
+  transition: var(--transition);
+}
+
+.service-link:hover {
+  color: var(--secondary-color);
+}
+
+.service-link:hover .arrow {
+  transform: translateX(5px);
+}
+
+.service-bg-icon {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  font-size: 8rem;
+  opacity: 0.05;
+  z-index: -1;
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+  background-color: var(--bg-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://images.unsplash.com/photo-1575505586569-646b2ca898fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")
+    center / cover no-repeat;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-family: var(--font-secondary);
+}
+
+.cta-content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: var(--text-light);
+}
+
+.cta-features {
+  margin-bottom: 2rem;
+}
+
+.cta-features li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cta-features li .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(26, 58, 108, 0.1);
+  color: var(--primary-color);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cta-image {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  height: 100%;
+}
+
+.cta-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== CASE RESULTS SECTION ===== */
+.case-results {
+  background-color: var(--bg-light);
+}
+
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.case-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  height: 100%;
+}
+
+.case-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.case-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.case-category {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background-color: rgba(26, 58, 108, 0.1);
+  color: var(--primary-color);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.case-result {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background-color: rgba(200, 163, 95, 0.1);
+  color: var(--secondary-color);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.case-title {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.case-description {
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+}
+
+.case-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-label {
+  font-size: 0.8rem;
+  color: var(--text-lighter);
+  margin-bottom: 0.25rem;
+}
+
+.meta-value {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.cases-cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* ===== TESTIMONIALS SECTION ===== */
+.testimonials {
+  background-color: var(--bg-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://images.unsplash.com/photo-1575505586569-646b2ca898fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")
+    center / cover no-repeat;
+  opacity: 0.03;
+  z-index: 0;
+}
+
+.testimonials-slider {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.testimonial-rating {
+  margin-bottom: 1.5rem;
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+}
+
+.testimonial-text {
+  font-style: italic;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+}
+
+.author-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.author-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.author-info h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+  color: var(--primary-color);
+}
+
+.author-info p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin: 0;
+}
+
+/* ===== TEAM SECTION ===== */
+.team {
+  background-color: var(--bg-light);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.team-member {
+  background-color: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.member-image {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.member-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.team-member:hover .member-image img {
+  transform: scale(1.1);
+}
+
+.member-overlay {
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  width: 100%;
+  padding: 1rem 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: var(--transition);
+  display: flex;
+  justify-content: center;
+}
+
+.team-member:hover .member-overlay {
+  bottom: 0;
+}
+
+.member-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.member-social .social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.member-social .social-link:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-5px);
+}
+
+.member-info {
+  padding: 1.5rem;
+}
+
+.member-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.member-position {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.member-info p {
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+}
+
+.member-specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.member-specialties span {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background-color: rgba(26, 58, 108, 0.1);
+  color: var(--primary-color);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ===== FAQ SECTION ===== */
+.faq {
+  background-color: var(--bg-color);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 1.5rem;
+}
+
+.faq-item {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.faq-item:hover {
+  box-shadow: var(--box-shadow);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  cursor: pointer;
+  background-color: var(--bg-light);
+}
+
+.faq-question h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.faq-icon {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+.faq-answer {
+  padding: 0 1.5rem 1.5rem;
+  color: var(--text-light);
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact {
+  background-color: var(--bg-light);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+.contact-info .section-header {
+  text-align: left;
+  margin: 0 0 2rem;
+}
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.contact-method {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.method-icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.method-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: invert(27%) sepia(51%) saturate(1000%) hue-rotate(182deg) brightness(95%) contrast(97%);
+}
+
+.method-details h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.method-details p {
+  color: var(--text-light);
+}
+
+.contact-social {
+  margin-bottom: 2rem;
+}
+
+.contact-social h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links .social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(26, 58, 108, 0.1);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.social-links .social-link:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-5px);
+}
+
+.contact-map {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+.contact-form-container {
+  background-color: white;
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-header h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.form-header p {
+  color: var(--text-light);
+}
+
+.contact-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.9rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: var(--bg-light);
+  transition: var(--transition);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(26, 58, 108, 0.1);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.form-check-input {
+  margin-top: 0.3rem;
+}
+
+.form-check-label {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.form-actions {
+  margin-top: 2rem;
+}
+
+.form-disclaimer {
+  font-size: 0.8rem;
+  color: var(--text-lighter);
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background-color: var(--bg-dark);
+  color: white;
+}
+
+.footer-top {
+  padding: 5rem 0 3rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+.footer-widget {
+  margin-bottom: 2rem;
+}
+
+.widget-title {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+  color: white;
+  font-weight: 700;
+}
+
+.widget-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 2px;
+  background-color: var(--secondary-color);
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-logo .logo-shield {
+  background-color: var(--primary-light);
+}
+
+.footer-logo .logo-text h2 {
+  color: white;
+  margin-bottom: 0;
+}
+
+.about-text {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social .social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.footer-social .social-link:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-5px);
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: white;
+  transform: translateX(5px);
+}
+
+.contact-info li {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-info li .icon {
+  color: var(--secondary-color);
+}
+
+.emergency-contact {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+}
+
+.emergency-contact h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.emergency-phone {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-weight: 600;
+}
+
+.phone-icon {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(214, 64, 69, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(214, 64, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(214, 64, 69, 0);
+  }
+}
+
+.footer-bottom {
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-bottom-links a {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.footer-bottom-links a:hover {
+  color: white;
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+@media (min-width: 576px) {
+  .hero-title {
+    font-size: 4rem;
+  }
+
+  .form-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 3rem;
+  }
+
+  .about-values {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-bottom-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .faq-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-methods {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  nav {
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  nav ul {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .mobile-menu-btn {
+    display: none;
+  }
+
+  .about-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-title {
+    font-size: 4.5rem;
+  }
+
+  .container {
+    max-width: 1140px;
+  }
+}
+
+
+</style>
